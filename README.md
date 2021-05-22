@@ -29,7 +29,7 @@ static_assert(!map.contains("key3"));
 // outside static assertion, it would throw std::out_of_range
 ```
 
-See also [main.cpp](main.hpp).
+See also [main.cpp](main.cpp).
 
 # Live Demo
 * ```x86-64 g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic```: **https://godbolt.org/z/vc4oshr1j**

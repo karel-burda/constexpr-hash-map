@@ -24,7 +24,7 @@ static_assert(map["key2"] == 2);
 static_assert(!map.contains("key3"));
 // this would not compile, because because hash map doesn't contain it
 //static_assert(map["key3"] == 3);
-// in runtime, it throws `std::out_of_range`
+// outside static assertion, it would throw std::out_of_range
 ```
 
 See also [main.cpp](main.hpp).

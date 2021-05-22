@@ -2,9 +2,11 @@
 [![License](https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat)](LICENSE)
 
 # Introduction
-Simple compile-time hash-map written in C++ 17.
+Simple single-header compile-time hash-map written in C++ 17.
 
 Compatible with g++ 10.1 and higher.
+
+Implented in [constexpr_hash_map.hpp](constexpr_hash_map/constexpr_hash_map.hpp).
 
 # Example
 ```cpp

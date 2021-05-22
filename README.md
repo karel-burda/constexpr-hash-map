@@ -28,4 +28,4 @@ static_assert(!map.contains("key3"));
 See also [main.cpp](main.hpp).
 
 # Live Demo
-* g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic: **https://godbolt.org/z/WGoPKdTjx**
+* g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic: **https://godbolt.org/z/vc4oshr1j**

@@ -4,7 +4,9 @@
 # Introduction
 Simple single-header compile-time hash-map written in C++ 17.
 
-Compatible with g++ 10.1 and higher.
+Compatible and tested on:
+* x86-64 g++ 10.1 and higher
+* x64 MSVC v19.14 and higher
 
 Implented in [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_map.hpp).
 
@@ -30,4 +32,5 @@ static_assert(!map.contains("key3"));
 See also [main.cpp](main.hpp).
 
 # Live Demo
-* ```g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic```: **https://godbolt.org/z/vc4oshr1j**
+* ```x86-64 g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic```: **https://godbolt.org/z/vc4oshr1j**
+* ```x64 MSVC v19.14, /std:c++17 /O2```: **https://godbolt.org/z/3TqneGz4x**

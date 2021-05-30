@@ -1,4 +1,5 @@
 ![Version](https://img.shields.io/badge/C++17-blue.svg)
+![Build](https://www.travis-ci.com/karel-burda/constexpr-hash-map.svg?branch=main)
 [![License](https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat)](LICENSE)
 
 # Introduction

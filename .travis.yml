@@ -1,6 +1,7 @@
 language: cpp
-dist: bionic
+dist: focal
 compiler: gcc
 
-script: 
+script:
+  - g++ --version
   - g++ main.cpp -I include -std=c++17 -O1 -Wall -Wextra -pedantic

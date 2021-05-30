@@ -14,7 +14,7 @@ Implented in [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_
 ```cpp
 #include <constexpr_hash_map/constexpr_hash_map.hpp>
 
-constexpr const burda::ct::hash_map<2, const char *, int> map
+constexpr burda::ct::hash_map<2, const char *, int> map
 {
     std::make_pair("key1", 1),
     std::make_pair("key2", 2)

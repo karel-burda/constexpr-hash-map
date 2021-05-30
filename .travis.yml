@@ -1,0 +1,6 @@
+language: cpp
+dist: bionic
+compiler: gcc
+
+script: 
+  - g++ main.cpp -I include -std=c++17 -O1 -Wall -Wextra -pedantic

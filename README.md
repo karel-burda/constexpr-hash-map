@@ -34,5 +34,5 @@ static_assert(!map.contains("key3"));
 See also [main.cpp](main.cpp).
 
 # Live Demo
-* ```x86-64 g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic```: **https://godbolt.org/z/vc4oshr1j**
-* ```x64 MSVC v19.14, /std:c++17 /O2```: **https://godbolt.org/z/3TqneGz4x**
+* ```x86-64 g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic```: **https://godbolt.org/z/M9fesW6va**
+* ```x64 MSVC v19.14, /std:c++17 /O2```: **https://godbolt.org/z/nTx7decxK**

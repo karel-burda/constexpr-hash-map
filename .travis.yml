@@ -2,6 +2,10 @@ language: cpp
 dist: focal
 compiler: gcc
 
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install gcc-10
+
 script:
   - g++ --version
   - g++ main.cpp -I include -std=c++17 -O1 -Wall -Wextra -pedantic

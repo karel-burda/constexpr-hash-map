@@ -17,7 +17,7 @@ public:
     : data{std::forward<E>(elements)...}
     {
         static_assert(N > 0, "N should be positive");
-        static_assert(N == sizeof...(elements), "Elements size don't match expected size of hash-map");
+        static_assert(N == sizeof...(elements), "Elements size doesn't match expected size of a hash-map");
     }
 
     [[nodiscard]] constexpr const V& at(const K& key) const

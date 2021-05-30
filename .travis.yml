@@ -4,7 +4,7 @@ compiler: gcc
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get -y install gcc-10
+  - sudo apt-get -y install g++-10
 
 script:
   - g++-10 --version

@@ -15,7 +15,7 @@ Implented in [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_
 ```cpp
 #include <constexpr_hash_map/constexpr_hash_map.hpp>
 
-constexpr burda::ct::hash_map<2, const char *, int> map
+static constexpr burda::ct::hash_map<2, const char *, int> map
 {
     std::make_pair("key1", 1),
     std::make_pair("key2", 2)
@@ -35,5 +35,5 @@ static_assert(!map.contains("key3"));
 See also [main.cpp](main.cpp).
 
 # Live Demo
-* ```x86-64 g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic```: **https://godbolt.org/z/M9fesW6va**
-* ```x64 MSVC v19.14, /std:c++17 /O2```: **https://godbolt.org/z/nTx7decxK**
+* ```x86-64 g++ 10.1, -std=c++17 -O1 -Wall -Wextra -pedantic```: **https://godbolt.org/z/3f3s6jxhY**
+* ```x64 MSVC v19.14, /std:c++17 /O2```: **https://godbolt.org/z/rWYKGW6vc**

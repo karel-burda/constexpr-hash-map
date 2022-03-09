@@ -2,7 +2,7 @@
 
 int main(int, const char**)
 {
-    constexpr const burda::ct::hash_map<2, const char*, int> map
+    static constexpr const burda::ct::hash_map<2, const char*, int> map
     {
         std::make_pair("key1", 1),
         std::make_pair("key2", 2)

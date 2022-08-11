@@ -36,12 +36,11 @@ static_assert(map.contains("key1"));
 static_assert(!map.contains("key99"));
 static_assert(map.at("key1").first); // first denotes, if element was found
 static_assert(map.at("key1").second == 1); // second is the actual value
-// operator[] doesn't check whether key exists; if doesn't, then it's UB
+// operator[] doesn't check whether key exists
 static_assert(map["key2"] == 2);
-// this wouldn't compile, because it cannot be evaluated to a constant expression, but outside
-// static assertion, it's UB
+// this wouldn't compile -- the key doesn't exist and therefore cannot be evaluated to a constant
+// expression, but outside static assertion, it's undefined behaviour
 //static_assert(map["key3"] == 3);
-// outside static assertion, it would throw std::out_of_range
 
 // algorithm support
 for (const auto& [key, value] : map)

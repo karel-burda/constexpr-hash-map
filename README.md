@@ -1,5 +1,5 @@
 ![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
-![C++](https://img.shields.io/badge/C++17-blue.svg)
+![C\+\+](https://img.shields.io/badge/C++17-blue.svg)
 [![License](https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat)](LICENSE)
 
 # Introduction

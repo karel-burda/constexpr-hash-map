@@ -51,5 +51,10 @@ for (const auto& [key, value] : map)
 
 See also [main.cpp](main.cpp).
 
+Example might compiled (with no additional flags), for example, by this minimal command:
+```bash
+g++ main.cpp -I include -std=c++17
+```
+
 # Live Demo
 * ```x86-64 g++ 12.1, x86-64 clang++ 14.0.0, x64 MSVC v19.32```: **https://godbolt.org/z/GY8Ya1rsh**

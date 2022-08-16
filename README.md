@@ -10,7 +10,7 @@ Compatible and tested on:
 * x86-64 clang++ 6.0 and higher
 * x64 MSVC v19.14 and higher
 
-Implemeted in the [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_map.hpp).
+Implemented in the [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_map.hpp).
 
 # Example
 ```cpp

@@ -8,16 +8,16 @@
 
 namespace burda::ct
 {
-/**
- * @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
- *        This means that keys and values has to be constexpr constructible and provide constexpr equals operator.
- *        Behaviour is undefined, if there are multiple keys.
- *        There's actually no hash function needed, see details section.
- * @details Implemented as an std::array containng pairs, so no hashing involved.
- * @tparam N total number of elements
- * @tparam K data type for keys
- * @tparam V data type for values
- */
+///
+/// @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
+///        This means that keys and values has to be constexpr constructible and provide constexpr equals operator.
+///       Behaviour is undefined, if there are multiple keys.
+///       There's actually no hash function needed, see details section.
+/// @details Implemented as an std::array containng pairs, so no hashing involved.
+/// @tparam N total number of elements
+/// @tparam K data type for keys
+/// @tparam V data type for values
+///
 template <std::size_t N, typename K, typename V>
 class hash_map
 {
@@ -46,13 +46,18 @@ public:
         static_assert(N == sizeof...(elements), "Elements size doesn't match expected size of a hash-map");
     }
 
+    /// @brief searches map for a given key and returns constant iterator to an element (cend, if not found)
     [[nodiscard]] constexpr const_iterator find(const K& key) const noexcept
     {
         return search<0, N>(key);
     }
 
-    // deliberately not throwing an exception, and returning pair instead,
-    // as this generates much shorter assembly on clang and msvc
+    ///
+    /// @brief searches for a given key, aimed to return associated value with it
+    /// @return pair, where first denotes whether element was found, second given value
+    /// @details Deliberately not throwing an exception, and returning pair instead,
+    ///          as this generates much shorter assembly on clang and msvc
+    ///
     [[nodiscard]] constexpr std::pair<bool, const V&> at(const K& key) const noexcept
     {
         const auto it = find(key);

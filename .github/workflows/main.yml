@@ -25,12 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Build Main
-        run: g++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Werror
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Build main
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          g++ --version && g++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Werror
+          clang++ --version && clang++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Werror

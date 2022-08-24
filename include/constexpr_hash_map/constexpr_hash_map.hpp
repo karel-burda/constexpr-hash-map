@@ -47,7 +47,7 @@ public:
     }
 
     ///
-    /// @brief searches map for a given key and returns iterator
+    /// @brief Searches map for a given key and returns iterator
     /// @param key key to be searched for
     /// @return constant iterator to an element (cend, if not found)
     ///
@@ -57,7 +57,8 @@ public:
     }
 
     ///
-    /// @brief searches for a given key, aimed to return associated value with it
+    /// @brief Searches for a given key, aimed to return associated value with it
+    /// @param key key to be searched for
     /// @return pair, where first denotes whether element was found, second given value
     /// @details Deliberately not throwing an exception, and returning pair instead,
     ///          as this generates much shorter assembly on clang and msvc
@@ -74,7 +75,12 @@ public:
         return {false, {}};
     }
 
-    // doesn't do any bounds checking
+    ///
+    /// @brief Retrieves reference to constant to a value.
+    ///        Doesn't perform any bounds checking, behaviour is undefined if the key doesn't exist
+    /// @param key key to be searched for
+    /// @return reference to constant to a value
+    ///
     [[nodiscard]] constexpr const V& operator[](const K& key) const noexcept
     {
         return find(key)->second;

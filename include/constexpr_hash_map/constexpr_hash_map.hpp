@@ -86,6 +86,9 @@ public:
         return find(key)->second;
     }
 
+    /// @brief Checks if element with given key exists
+    /// @param key key to be searched for
+    /// @return boolean that denotes key's existence
     [[nodiscard]] constexpr bool contains(const K& key) const noexcept
     {
         return search<0, N>(key) != std::cend(data);

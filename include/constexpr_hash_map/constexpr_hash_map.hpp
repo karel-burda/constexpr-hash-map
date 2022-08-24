@@ -84,18 +84,23 @@ public:
         return search<0, N>(key) != std::cend(data);
     }
 
-    /// @brief retrieves size of a hash-map, might also be called indirectly using the std::size(...)
+    /// @brief Retrieves size of a hash-map, might also be called indirectly using the std::size(...)
+    /// @return total size of a container
     [[nodiscard]] constexpr size_type size() const noexcept
     {
         return data.size();
     }
 
-    /// @brief gives constant iterator to a beginning, needed for the C++11 for-each cycle or the std::for_each
+    /// @brief Gives constant iterator to a beginning, needed for the C++11 for-each cycle or the std::for_each
+    /// @return constant iterator to a beginning
+    /// @seealso cbegin()
     [[nodiscard]] constexpr const_iterator begin() const noexcept
     {
         return cbegin();
     }
 
+    /// @brief Gives constant iterator to a beginning, might be also called using std::cbegin(...)
+    /// @return constant iterator to a beginning
     [[nodiscard]] constexpr const_iterator cbegin() const noexcept
     {
         return std::cbegin(data);

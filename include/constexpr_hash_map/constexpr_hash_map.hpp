@@ -33,6 +33,11 @@ public:
     /// @see std::array<...>::const_iterator
     using const_iterator = typename data_type::const_iterator;
 
+    ///
+    /// @brief The only construction that might be used, all keys and values must be provided in the constructor
+    /// @tparam R Variadic arguments automatically deduced by the compiler
+    /// @param elements series of std::pair<K, V>, cannot be empty
+    ///
     template<typename... E>
     explicit constexpr hash_map(E&&... elements) noexcept
     : data{std::forward<E>(elements)...}

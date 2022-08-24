@@ -10,6 +10,7 @@ namespace burda::ct
 {
 /**
  * @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
+ * @detail Behaviour is undefined, if there are multiple keys.
  * @tparam N total number of elements
  * @tparam K data type for keys
  * @tparam V data type for values
@@ -18,6 +19,7 @@ template <std::size_t N, typename K, typename V>
 class hash_map
 {
 public:
+    /// @see std::unordered_map<...>::key_type
     using key_type = K;
     using value_type = V;
     using size_type = decltype(N);

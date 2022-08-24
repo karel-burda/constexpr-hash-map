@@ -46,7 +46,11 @@ public:
         static_assert(N == sizeof...(elements), "Elements size doesn't match expected size of a hash-map");
     }
 
-    /// @brief searches map for a given key and returns constant iterator to an element (cend, if not found)
+    ///
+    /// @brief searches map for a given key and returns iterator
+    /// @param key key to be searched for
+    /// @return constant iterator to an element (cend, if not found)
+    ///
     [[nodiscard]] constexpr const_iterator find(const K& key) const noexcept
     {
         return search<0, N>(key);

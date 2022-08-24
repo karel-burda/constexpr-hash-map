@@ -13,11 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Build main (gcc)
+      - name: g++
         run: g++ --version && g++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Wshadow -Werror
 
-      - name: Build main (clang++)
+      - name: clang++
         run: clang++ --version && clang++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Wshadow -Werror
 
-      - name: Static analysis
-        run: clang-tidy --version
+  static_analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: clang-tidy
+        run: clang-tidy --version && clang-tidy main.cpp -checks=-* -- I include -std=c++17

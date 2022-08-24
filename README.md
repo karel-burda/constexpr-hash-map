@@ -1,6 +1,7 @@
 ![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
 ![Language](https://img.shields.io/badge/C++17-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat)
+[![CI](https://github.com/karel-burda/constexpr-hash-map/actions/workflows/main.yml/badge.svg)](https://github.com/karel-burda/constexpr-hash-map/actions/workflows/main.yml)
 
 # Introduction
 Simple single-header compile-time hash-map written in C++ 17.

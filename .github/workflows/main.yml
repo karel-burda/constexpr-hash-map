@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: g++
+        run: g++ --version && g++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Wshadow -Werror
+
+      - name: clang++
+        run: clang++ --version && clang++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Wshadow -Werror
+
+  static_analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: clang-tidy
+        run: clang-tidy --version && clang-tidy -checks="*" main.cpp -- -I include -std=c++17

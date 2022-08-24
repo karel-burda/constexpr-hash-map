@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-  workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,4 +17,4 @@ jobs:
         run: g++ --version && g++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Werror
 
       - name: Build main (clang++)
-       run: clang++ --version && clang++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Werror
+        run: clang++ --version && clang++ main.cpp -I include -std=c++17 -Wall -Wextra -pedantic -Werror

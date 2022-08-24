@@ -10,7 +10,8 @@ namespace burda::ct
 {
 /**
  * @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
- * @detail Behaviour is undefined, if there are multiple keys.
+ *        This means that keys and values has to be constexpr constructible and provide constexpr equals operator.
+ * @details Behaviour is undefined, if there are multiple keys.
  * @tparam N total number of elements
  * @tparam K data type for keys
  * @tparam V data type for values

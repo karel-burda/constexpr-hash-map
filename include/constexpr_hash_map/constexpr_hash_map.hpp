@@ -11,7 +11,9 @@ namespace burda::ct
 /**
  * @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
  *        This means that keys and values has to be constexpr constructible and provide constexpr equals operator.
- * @details Behaviour is undefined, if there are multiple keys.
+ *        Behaviour is undefined, if there are multiple keys.
+ *        There's actually no hash function needed, see details section.
+ * @details Implemented as an std::array containng pairs, so no hashing involved.
  * @tparam N total number of elements
  * @tparam K data type for keys
  * @tparam V data type for values
@@ -22,9 +24,13 @@ class hash_map
 public:
     /// @see std::unordered_map<...>::key_type
     using key_type = K;
+    /// @see std::unordered_map<...>::value_type
     using value_type = V;
+    /// @see std::unordered_map<...>::size_type
     using size_type = decltype(N);
+    /// @brief underlying structure used for the actual implementation
     using data_type = std::array<std::pair<K, V>, N>;
+    /// @see std::array<...>::const_iterator
     using const_iterator = typename data_type::const_iterator;
 
     template<typename... E>

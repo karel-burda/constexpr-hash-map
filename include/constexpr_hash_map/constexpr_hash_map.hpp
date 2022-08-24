@@ -8,6 +8,12 @@
 
 namespace burda::ct
 {
+/**
+ * @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
+ * @tparam N total number of elements
+ * @tparam K data type for keys
+ * @tparam V data type for values
+ */
 template <std::size_t N, typename K, typename V>
 class hash_map
 {

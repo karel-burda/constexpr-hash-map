@@ -27,3 +27,12 @@ jobs:
 
       - name: clang-tidy
         run: clang-tidy --version && clang-tidy -checks="*" main.cpp -- -I include -std=c++17
+
+  documentation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: doxygen
+        run: doxygen --version && doxygen -g .doxygen  

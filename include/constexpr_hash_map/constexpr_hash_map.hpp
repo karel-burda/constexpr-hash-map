@@ -131,6 +131,7 @@ public:
         return false;
     }
 
+/// @privatesection
 protected:
     using index_type = size_type;
 

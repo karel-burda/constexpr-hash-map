@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.1.1-blue.svg)
 ![Language](https://img.shields.io/badge/C++17-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat)
 [![CI](https://github.com/karel-burda/constexpr-hash-map/actions/workflows/main.yml/badge.svg)](https://github.com/karel-burda/constexpr-hash-map/actions/workflows/main.yml)
@@ -6,12 +6,27 @@
 # Introduction
 Simple single-header compile-time hash-map written in C++ 17.
 
+Hash-map operates only in compile time and represents associative key-value container that contains only unique keys.
+
+It works with custom data-types, if these provide `constexpr` and `noexcept` construction and `operator=`.
+
+Container supports:
+* construction in one command
+* look-up
+* value retrieval
+* supports iterators (`cend()`, `std::size()`, ...)
+* algorithms (for-each, ...)
+
+Implemented and documented in the [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_map.hpp).
+
+Behaviour is undefined, if there are multiple same keys.
+
 Compatible and tested on:
 * x86-64 g++ 8.1 and higher
 * x86-64 clang++ 6.0 and higher
 * x64 MSVC v19.14 and higher
 
-Implemented in the [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_map.hpp).
+In case of bigger number of elements, compiler's settings regarding constexpr (such as `-fconstexpr-depth` on the GNU) might needed be tuned-up, as container uses compile-time recursion.
 
 # Example
 ```cpp
@@ -58,4 +73,4 @@ g++ main.cpp -I include -std=c++17
 ```
 
 # Live Demo
-* ```x86-64 g++ 12.1, x86-64 clang++ 14.0.0, x64 MSVC v19.32```: **https://godbolt.org/z/GY8Ya1rsh**
+* ```x86-64 g++ 12.1```: **https://godbolt.org/z/1Ms3s5Wdh**

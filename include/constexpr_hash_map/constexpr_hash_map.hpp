@@ -131,8 +131,8 @@ public:
         return false;
     }
 
-/// @privatesection
 protected:
+    /// @private type used for indexing elements
     using index_type = size_type;
 
     template <index_type L, index_type R>

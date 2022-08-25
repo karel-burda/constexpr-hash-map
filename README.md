@@ -73,4 +73,4 @@ g++ main.cpp -I include -std=c++17
 ```
 
 # Live Demo
-* ```x86-64 g++ 12.1, x86-64 clang++ 14.0.0, x64 MSVC v19.32```: **https://godbolt.org/z/GY8Ya1rsh**
+* ```x86-64 g++ 12.1```: **https://godbolt.org/z/1Ms3s5Wdh**

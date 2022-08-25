@@ -7,6 +7,7 @@
 Simple single-header compile-time hash-map written in C++ 17.
 
 Hash-map operates only in compile time and represents associative key-value container that contains only unique keys.
+
 It works with custom data-types, if these provide `constexpr` and `noexcept` construction and `operator=`.
 
 Container supports:
@@ -24,6 +25,8 @@ Compatible and tested on:
 * x86-64 g++ 8.1 and higher
 * x86-64 clang++ 6.0 and higher
 * x64 MSVC v19.14 and higher
+
+In case of bigger number of elements, compiler's settings regarding constexpr (such as `-fconstexpr-depth` on the GNU) might needed be tuned-up, as container uses compile-time recursion.
 
 # Example
 ```cpp

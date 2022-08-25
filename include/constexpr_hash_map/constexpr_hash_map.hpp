@@ -12,7 +12,7 @@ namespace burda::ct
 ///        This means that keys and values have to be constexpr and noexcept constructible and provide constexpr noexcept operator=.
 /// @brief Behaviour is undefined, if there are multiple keys.
 /// @brief There's actually no hash function needed, see details section.
-/// @details Implemented as an std::array containng pairs, so no hashing involved.
+/// @details Implemented as an std::array containing pairs, so no hashing is involved.
 /// @tparam N total number of elements
 /// @tparam K data type for keys
 /// @tparam V data type for values
@@ -70,7 +70,7 @@ public:
     /// @brief Retrieves reference to constant to a value.
     ///        Doesn't perform any bounds checking, behaviour is undefined if the key doesn't exist
     /// @param key key to be searched for
-    /// @return reference to constant to a value
+    /// @return reference to constant to a value associated with the key
     [[nodiscard]] constexpr const V& operator[](const K& key) const noexcept
     {
         return find(key)->second;
@@ -135,7 +135,7 @@ protected:
     /// @private type used for indexing elements
     using index_type = size_type;
 
-    /// @private function that does the constexpr recursive searching of the array from left to right
+    /// @private function that does a constexpr recursive searching of the array from left to right
     template <index_type L, index_type R>
     [[nodiscard]] constexpr const_iterator search(const K& key) const noexcept
     {
@@ -159,7 +159,7 @@ protected:
         return lhs == rhs;
     }
 
-    /// @private specific implementation for const char* equality is needed' uses recursion
+    /// @private specific implementation for "const char*" equality is needed; uses recursion
     [[nodiscard]] constexpr bool equal(char const * lhs, char const * rhs) const noexcept
     {
         return *lhs == *rhs && (*lhs == '\0' || equal(lhs + 1, rhs + 1));

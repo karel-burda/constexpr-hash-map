@@ -8,10 +8,10 @@
 
 namespace burda::ct
 {
-/// @summary Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
-///          This means that keys and values have to be constexpr and noexcept constructible and provide constexpr noexcept operator=.
-///          Behaviour is undefined, if there are multiple keys.
-///          There's actually no hash function needed, see details section.
+/// @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
+///        This means that keys and values have to be constexpr and noexcept constructible and provide constexpr noexcept operator=.
+/// @brief Behaviour is undefined, if there are multiple keys.
+/// @brief There's actually no hash function needed, see details section.
 /// @details Implemented as an std::array containng pairs, so no hashing involved.
 /// @tparam N total number of elements
 /// @tparam K data type for keys

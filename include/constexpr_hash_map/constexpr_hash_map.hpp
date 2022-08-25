@@ -93,7 +93,7 @@ public:
 
     /// @brief Gives constant iterator to a beginning, needed for the C++11 for-each cycle or the std::for_each
     /// @return constant iterator to a beginning
-    /// @seealso cbegin()
+    /// @see cbegin()
     [[nodiscard]] constexpr const_iterator begin() const noexcept
     {
         return cbegin();
@@ -101,7 +101,7 @@ public:
 
     /// @brief Gives constant iterator to a beginning, might be also called using std::cbegin(...)
     /// @return constant iterator to a beginning
-    /// @seealso std::unordered_map<...>::cbegin()
+    /// @see std::unordered_map<...>::cbegin()
     [[nodiscard]] constexpr const_iterator cbegin() const noexcept
     {
         return std::cbegin(data);
@@ -109,7 +109,7 @@ public:
 
     /// @brief Gives constant iterator to an end, needed for the C++11 for-each cycle or the std::for_each
     /// @return constant iterator to an end (past the last element)
-    /// @seealso cend()
+    /// @see cend()
     [[nodiscard]] constexpr const_iterator end() const noexcept
     {
         return cend();
@@ -117,7 +117,7 @@ public:
 
     /// @brief Gives constant iterator to a beginning, might be also called using std::cend(...)
     /// @return constant iterator to an end (past the last element)
-    /// @seealso std::unordered_map<...>::cend()
+    /// @see std::unordered_map<...>::cend()
     [[nodiscard]] constexpr const_iterator cend() const noexcept
     {
         return std::cend(data);
@@ -125,7 +125,7 @@ public:
 
     /// @brief Hash-map cannot be empty; this might also be called using std::empty(...)
     /// @return false -- cannot be empty
-    /// @seealso std::unordered_map<...>::empty()
+    /// @see std::unordered_map<...>::empty()
     [[nodiscard]] constexpr bool empty() const noexcept
     {
         return false;

@@ -8,10 +8,10 @@
 
 namespace burda::ct
 {
-/// @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
-///        This means that keys and values has to be constexpr constructible and provide constexpr equals operator.
-///       Behaviour is undefined, if there are multiple keys.
-///       There's actually no hash function needed, see details section.
+/// @summary Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
+///          This means that keys and values have to be constexpr and noexcept constructible and provide constexpr noexcept operator=.
+///          Behaviour is undefined, if there are multiple keys.
+///          There's actually no hash function needed, see details section.
 /// @details Implemented as an std::array containng pairs, so no hashing involved.
 /// @tparam N total number of elements
 /// @tparam K data type for keys
@@ -135,6 +135,7 @@ protected:
     /// @private type used for indexing elements
     using index_type = size_type;
 
+    /// @private function that does the constexpr recursive searching of the array from left to right
     template <index_type L, index_type R>
     [[nodiscard]] constexpr const_iterator search(const K& key) const noexcept
     {
@@ -151,16 +152,17 @@ protected:
         return std::cend(data);
     }
 
+    /// @private generic implementation that compares keys
     template <typename T = K>
-    [[nodiscard]] constexpr bool equal(const T& a, const T& b) const noexcept
+    [[nodiscard]] constexpr bool equal(const T& lhs, const T& rhs) const noexcept
     {
-        return a == b;
+        return lhs == rhs;
     }
 
-    // specific implementation for const char* is needed
-    [[nodiscard]] constexpr bool equal(char const * a, char const * b) const noexcept
+    /// @private specific implementation for const char* equality is needed' uses recursion
+    [[nodiscard]] constexpr bool equal(char const * lhs, char const * rhs) const noexcept
     {
-        return *a == *b && (*a == '\0' || equal(a + 1, b + 1));
+        return *lhs == *rhs && (*lhs == '\0' || equal(lhs + 1, rhs + 1));
     }
 
 private:

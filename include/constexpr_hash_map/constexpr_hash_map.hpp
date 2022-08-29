@@ -168,6 +168,6 @@ protected:
 private:
     data_type data;
 };
-}
+}  // namespace burda::ct
 
 #endif // BURDA_CONSTEXPR_HASH_MAP_HPP

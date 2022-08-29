@@ -81,7 +81,7 @@ public:
     /// @return boolean that denotes key's existence
     [[nodiscard]] constexpr bool contains(const K& key) const noexcept
     {
-        return search<0, N>(key) != std::cend(data);
+        return search<0, N>(key) != cend();
     }
 
     /// @brief Retrieves size of a hash-map, might also be called indirectly using the std::size(...)

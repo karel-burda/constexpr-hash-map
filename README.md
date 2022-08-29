@@ -42,7 +42,7 @@ static constexpr burda::ct::hash_map<2, const char *, int> map
 // capacity and iterators
 static_assert(map.size() == 2);
 static_assert(std::size(map) == 2);
-const auto it = map.find("key1");
+static constexpr auto it = map.find("key1");
 static_assert(it != std::cend(map));
 static_assert(it->second == 1); // it->second holds the value
 static_assert(!std::empty(map));

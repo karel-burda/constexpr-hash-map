@@ -10,7 +10,7 @@ namespace burda::ct
 {
 /// @brief Compile-time hash-map (associative key-value container) that performs all operations in constexpr context.
 ///        This means that keys and values have to be constexpr and noexcept constructible and provide constexpr noexcept operator=.
-/// @brief Behaviour is undefined, if there are multiple keys.
+/// @brief Behaviour is undefined, if there are multiple same keys.
 /// @brief There's actually no hash function needed, see details section.
 /// @details Implemented as an std::array containing pairs, so no hashing is involved.
 /// @tparam N total number of elements
@@ -81,7 +81,7 @@ public:
     /// @return boolean that denotes key's existence
     [[nodiscard]] constexpr bool contains(const K& key) const noexcept
     {
-        return search<0, N>(key) != std::cend(data);
+        return search<0, N>(key) != cend();
     }
 
     /// @brief Retrieves size of a hash-map, might also be called indirectly using the std::size(...)
@@ -143,13 +143,13 @@ protected:
         {
             if (equal(data[L].first, key))
             {
-                return std::next(std::cbegin(data), L);
+                return std::next(cbegin(), L);
             }
 
             return search<L+1, R>(key);
         }
 
-        return std::cend(data);
+        return cend();
     }
 
     /// @private generic implementation that compares keys
@@ -168,6 +168,6 @@ protected:
 private:
     data_type data;
 };
-}
+}  // namespace burda::ct
 
 #endif // BURDA_CONSTEXPR_HASH_MAP_HPP

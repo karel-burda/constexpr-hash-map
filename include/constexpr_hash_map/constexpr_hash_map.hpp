@@ -143,13 +143,13 @@ protected:
         {
             if (equal(data[L].first, key))
             {
-                return std::next(std::cbegin(data), L);
+                return std::next(cbegin(), L);
             }
 
             return search<L+1, R>(key);
         }
 
-        return std::cend(data);
+        return cend();
     }
 
     /// @private generic implementation that compares keys

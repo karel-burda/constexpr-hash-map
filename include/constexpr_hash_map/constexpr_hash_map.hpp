@@ -160,7 +160,7 @@ protected:
     }
 
     /// @private specific implementation for "const char*" equality is needed; uses recursion
-    [[nodiscard]] constexpr bool equal(char const * lhs, char const * rhs) const noexcept
+    [[nodiscard]] constexpr bool equal(const char* lhs, const char* rhs) const noexcept
     {
         return *lhs == *rhs && (*lhs == '\0' || equal(lhs + 1, rhs + 1));
     }

@@ -1,5 +1,5 @@
-#ifndef BURDA_CONSTEXPR_HASH_MAP_HPP
-#define BURDA_CONSTEXPR_HASH_MAP_HPP
+#ifndef CONSTEXPR_HASH_MAP_CONSTEXPR_HASH_MAP_HPP
+#define CONSTEXPR_HASH_MAP_CONSTEXPR_HASH_MAP_HPP
 
 #include <array>
 #include <cstddef>
@@ -71,6 +71,7 @@ public:
     ///        Doesn't perform any bounds checking, behaviour is undefined if the key doesn't exist
     /// @param key key to be searched for
     /// @return reference to constant to a value associated with the key
+    // NOLINTNEXTLINE(fuchsia-overloaded-operator)
     [[nodiscard]] constexpr const V& operator[](const K& key) const noexcept
     {
         return find(key)->second;
@@ -162,6 +163,7 @@ protected:
     /// @private specific implementation for "const char*" equality is needed; uses recursion
     [[nodiscard]] constexpr bool equal(const char* lhs, const char* rhs) const noexcept
     {
+        // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic)
         return *lhs == *rhs && (*lhs == '\0' || equal(lhs + 1, rhs + 1));
     }
 
@@ -170,4 +172,4 @@ private:
 };
 }  // namespace burda::ct
 
-#endif // BURDA_CONSTEXPR_HASH_MAP_HPP
+#endif // CONSTEXPR_HASH_MAP_CONSTEXPR_HASH_MAP_HPP

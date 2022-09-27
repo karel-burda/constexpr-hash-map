@@ -29,7 +29,7 @@ jobs:
 
       - name: clang-tidy
         run: clang-tidy --version && \
-             clang-tidy include/constexpr_hash_map/constexpr_hash_map.hpp main.cpp --checks="*,-llvmlibc-*" --warnings-as-errors="*" -- -I include -std=c++17
+             clang-tidy include/constexpr_hash_map/constexpr_hash_map.hpp main.cpp --checks="*,-llvmlibc-*,-modernize-use-trailing-return-type" --warnings-as-errors="*" -- -I include -std=c++17
 
   documentation:
     runs-on: ubuntu-latest

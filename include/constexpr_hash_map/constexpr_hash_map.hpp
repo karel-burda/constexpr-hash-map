@@ -1,5 +1,5 @@
-#ifndef BURDA_CONSTEXPR_HASH_MAP_HPP
-#define BURDA_CONSTEXPR_HASH_MAP_HPP
+#ifndef CONSTEXPR_HASH_MAP_CONSTEXPR_HASH_MAP_HPP
+#define CONSTEXPR_HASH_MAP_CONSTEXPR_HASH_MAP_HPP
 
 #include <array>
 #include <cstddef>
@@ -171,4 +171,4 @@ private:
 };
 }  // namespace burda::ct
 
-#endif // BURDA_CONSTEXPR_HASH_MAP_HPP
+#endif // CONSTEXPR_HASH_MAP_CONSTEXPR_HASH_MAP_HPP

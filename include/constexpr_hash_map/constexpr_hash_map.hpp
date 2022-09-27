@@ -1,6 +1,3 @@
-#ifndef BURDA_CONSTEXPR_HASH_MAP_HPP
-#define BURDA_CONSTEXPR_HASH_MAP_HPP
-
 #include <array>
 #include <cstddef>
 #include <iterator>
@@ -169,5 +166,3 @@ private:
     data_type data;
 };
 }  // namespace burda::ct
-
-#endif // BURDA_CONSTEXPR_HASH_MAP_HPP

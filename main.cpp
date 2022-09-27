@@ -49,7 +49,7 @@ int example_advanced() noexcept
     return it->second.size();
 }
 
-int main(const int, const char**)
+int main([[maybe_unused]] const int argc, [[maybe_unused]] const char** argv)
 {
     return example_simple() + example_advanced();
 }

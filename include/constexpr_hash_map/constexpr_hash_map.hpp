@@ -31,8 +31,8 @@ public:
     /// @see std::array<...>::const_iterator
     using const_iterator = typename data_type::const_iterator;
 
-    /// @brief The only construction that might be used, all keys and values must be provided in the constructor
-    /// @tparam R Variadic arguments automatically deduced by the compiler
+    /// @brief The only construction that might be used, all keys and values must be provided in the constructor.
+    /// @tparam R variadic arguments automatically deduced by the compiler
     /// @param elements series of std::pair<K, V>, cannot be empty
     template<typename... E>
     explicit constexpr hash_map(E&&... elements) noexcept
@@ -42,7 +42,7 @@ public:
         static_assert(N == sizeof...(elements), "Elements size doesn't match expected size of a hash-map");
     }
 
-    /// @brief Searches map for a given key and returns iterator
+    /// @brief Searches map for a given key and returns iterator.
     /// @param key key to be searched for
     /// @return constant iterator to an element (cend, if not found)
     [[nodiscard]] constexpr const_iterator find(const K& key) const noexcept
@@ -50,7 +50,7 @@ public:
         return search<0, N>(key);
     }
 
-    /// @brief Searches for a given key, aimed to return associated value with it
+    /// @brief Searches for a given key, aimed to return associated value with it.
     /// @param key key to be searched for
     /// @return pair, where first denotes whether element was found, second given value
     /// @details Deliberately not throwing an exception, and returning pair instead,
@@ -68,7 +68,7 @@ public:
     }
 
     /// @brief Retrieves reference to constant to a value.
-    ///        Doesn't perform any bounds checking, behaviour is undefined if the key doesn't exist
+    ///        Doesn't perform any bounds checking, behaviour is undefined if the key doesn't exist.
     /// @param key key to be searched for
     /// @return reference to constant to a value associated with the key
     // NOLINTNEXTLINE(fuchsia-overloaded-operator)
@@ -77,7 +77,7 @@ public:
         return find(key)->second;
     }
 
-    /// @brief Checks if element with given key exists
+    /// @brief Checks if element with given key exists.
     /// @param key key to be searched for
     /// @return boolean that denotes key's existence
     [[nodiscard]] constexpr bool contains(const K& key) const noexcept
@@ -85,14 +85,14 @@ public:
         return search<0, N>(key) != cend();
     }
 
-    /// @brief Retrieves size of a hash-map, might also be called indirectly using the std::size(...)
+    /// @brief Retrieves size of a hash-map, might also be called indirectly using the std::size(...).
     /// @return total size of a container
     [[nodiscard]] constexpr size_type size() const noexcept
     {
         return data.size();
     }
 
-    /// @brief Gives constant iterator to a beginning, needed for the C++11 for-each cycle or the std::for_each
+    /// @brief Gives constant iterator to a beginning, needed for the C++11 for-each cycle or the std::for_each.
     /// @return constant iterator to a beginning
     /// @see cbegin()
     [[nodiscard]] constexpr const_iterator begin() const noexcept
@@ -100,7 +100,7 @@ public:
         return cbegin();
     }
 
-    /// @brief Gives constant iterator to a beginning, might be also called using std::cbegin(...)
+    /// @brief Gives constant iterator to a beginning, might be also called using std::cbegin(...).
     /// @return constant iterator to a beginning
     /// @see std::unordered_map<...>::cbegin()
     [[nodiscard]] constexpr const_iterator cbegin() const noexcept
@@ -108,7 +108,7 @@ public:
         return std::cbegin(data);
     }
 
-    /// @brief Gives constant iterator to an end, needed for the C++11 for-each cycle or the std::for_each
+    /// @brief Gives constant iterator to an end, needed for the C++11 for-each cycle or the std::for_each.
     /// @return constant iterator to an end (past the last element)
     /// @see cend()
     [[nodiscard]] constexpr const_iterator end() const noexcept
@@ -116,7 +116,7 @@ public:
         return cend();
     }
 
-    /// @brief Gives constant iterator to a beginning, might be also called using std::cend(...)
+    /// @brief Gives constant iterator to a beginning, might be also called using std::cend(...).
     /// @return constant iterator to an end (past the last element)
     /// @see std::unordered_map<...>::cend()
     [[nodiscard]] constexpr const_iterator cend() const noexcept
@@ -124,7 +124,7 @@ public:
         return std::cend(data);
     }
 
-    /// @brief Hash-map cannot be empty; this might also be called using std::empty(...)
+    /// @brief Hash-map cannot be empty; this might also be called using std::empty(...).
     /// @return false -- cannot be empty
     /// @see std::unordered_map<...>::empty()
     [[nodiscard]] constexpr bool empty() const noexcept

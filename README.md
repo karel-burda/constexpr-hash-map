@@ -16,7 +16,7 @@ Container supports:
 * look-up
 * value retrieval
 * supports iterators (`cend()`, `std::size()`, ...)
-* algorithms (for-each, ...)
+* algorithms (for-each, ...) -- note that iteration order is unspecified and depends on hash values
 
 Implemented and documented in the [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_map.hpp).
 

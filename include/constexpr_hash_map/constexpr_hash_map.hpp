@@ -40,6 +40,7 @@ public:
     {
         static_assert(N > 0, "N should be positive");
         static_assert(N == sizeof...(elements), "Elements size doesn't match expected size of a hash-map");
+        static_assert(!has_duplicate_keys<...>(data), "There are duplicate keys");
     }
 
     /// @brief Searches map for a given key and returns iterator.
@@ -168,6 +169,22 @@ protected:
     }
 
 private:
+    template <typename Key, typename PairArray, std::size_t N>
+    constexpr bool has_duplicate_keys(const PairArray& data) noexcept
+    {
+    for (std::size_t i = 0; i < N; ++i)
+    {
+        for (std::size_t j = i + 1; j < N; ++j)
+        {
+            if (data[i].first == data[j].first)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+    }
+
     data_type data;
 };
 }  // namespace burda::ct

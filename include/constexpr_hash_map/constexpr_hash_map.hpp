@@ -38,8 +38,14 @@ public:
     explicit constexpr hash_map(E&&... elements) noexcept
     : data{std::forward<E>(elements)...}
     {
+        static_assert(std::is_nothrow_copy_constructible<Key>::value, "Key must be noexcept copy constructible");
+        static_assert(std::is_nothrow_copy_constructible<T>::value, "Value must be noexcept copy constructible");
+
+        static_assert(detail::is_constexpr_hashable<Key>::value, "Key must be hashable in constexpr context");
+        
         static_assert(N > 0, "N should be positive");
         static_assert(N == sizeof...(elements), "Elements size doesn't match expected size of a hash-map");
+        static_assert(!has_duplicate_keys<...>(data), "There are duplicate keys");
     }
 
     /// @brief Searches map for a given key and returns iterator.
@@ -168,8 +174,42 @@ protected:
     }
 
 private:
+    template <typename Key, typename PairArray, std::size_t N>
+    constexpr bool has_duplicate_keys(const PairArray& data) noexcept
+    {
+    for (std::size_t i = 0; i < N; ++i)
+    {
+        for (std::size_t j = i + 1; j < N; ++j)
+        {
+            if (data[i].first == data[j].first)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+    }
+
     data_type data;
 };
+
+namespace detail
+{
+    template <typename K>
+    struct is_constexpr_hashable {
+    private:
+        template <typename U>
+        static constexpr auto test(int) ->
+            decltype(constexpr_hash(std::declval<U>()), true);
+    
+        template <typename>
+        static constexpr bool test(...) { return false; }
+    
+    public:
+        static constexpr bool value = test<K>(0);
+    };
+} // namespace detail
 }  // namespace burda::ct
 
 #endif // CONSTEXPR_HASH_MAP_CONSTEXPR_HASH_MAP_HPP
+

@@ -1,5 +1,6 @@
 ![Version](https://img.shields.io/badge/version-1.1.1-blue.svg)
 ![Language](https://img.shields.io/badge/C++17-blue.svg)
+![Documentation](https://img.shields.io/badge/Doxygen-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat)
 [![CI](https://github.com/karel-burda/constexpr-hash-map/actions/workflows/main.yml/badge.svg)](https://github.com/karel-burda/constexpr-hash-map/actions/workflows/main.yml)
 
@@ -15,10 +16,11 @@ Container supports:
 * look-up
 * value retrieval
 * supports iterators (`cend()`, `std::size()`, ...)
-* algorithms (for-each, ...)
+* algorithms (for-each, ...) -- note that iteration order is unspecified and depends on hash values
 
 Implemented and documented in the [constexpr_hash_map.hpp](include/constexpr_hash_map/constexpr_hash_map.hpp).
 
+TODO: FIXME
 Behaviour is undefined, if there are multiple same keys.
 
 Compatible and tested on:
@@ -26,7 +28,7 @@ Compatible and tested on:
 * x86-64 clang++ 6.0 and higher
 * x64 MSVC v19.14 and higher
 
-In case of bigger number of elements, compiler's settings regarding constexpr (such as `-fconstexpr-depth` on the GNU) might needed be tuned-up, as container uses compile-time recursion.
+In case of higher number of elements, compiler's settings regarding constexpr (such as `-fconstexpr-depth` on the GNU) might needed be tuned-up, as container uses compile-time recursion.
 
 # Example
 ```cpp
@@ -65,12 +67,9 @@ for (const auto& [key, value] : map)
 }
 ```
 
-See also [main.cpp](main.cpp).
+See also [test/main.cpp](test/main.cpp).
 
-Example might compiled (with no additional flags), for example, by this minimal command:
+Tests might compiled (with no additional flags), for example, by this minimal command:
 ```bash
 g++ main.cpp -I include -std=c++17
 ```
-
-# Live Demo
-* ```x86-64 g++ 12.1```: **https://godbolt.org/z/rjrxcbWo9**
